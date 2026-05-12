@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileCTABar } from "@/components/MobileCTABar";
 import { site } from "@/data/site";
+import { marketingImages } from "@/lib/marketing-images";
 import "./globals.css";
 
 const notoSansJp = Noto_Sans_JP({
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "ja_JP",
     type: "website",
+    images: [marketingImages.ogp],
   },
 };
 

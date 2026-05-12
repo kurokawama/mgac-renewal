@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HeartHandshake, ShieldCheck } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -10,6 +11,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { courses } from "@/data/courses";
 import { testimonialsByPersona } from "@/data/testimonials";
+import { marketingImages } from "@/lib/marketing-images";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
 
@@ -67,10 +69,10 @@ export default function FamilyPage() {
         items={[{ label: "家族のために学ぶ方", href: "/for/family" }]}
       />
 
-      <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
+      <section className="bg-gradient-to-br from-white via-accent/5 to-muted py-16 md:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <Badge className="mb-5 bg-primary/10 text-primary">
+            <Badge className="mb-5 bg-accent/10 text-accent">
               家族ケアを学びたい方へ
             </Badge>
             <h1 className="text-4xl font-black tracking-tight text-primary md:text-6xl">
@@ -84,24 +86,35 @@ export default function FamilyPage() {
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "mt-8 h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                "mt-8 h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
               )}
             >
               家族ケアを相談する
             </Link>
           </div>
-          <Card className="border-0 bg-white shadow-sm">
-            <CardContent className="p-6">
-              <HeartHandshake className="size-10 text-accent" aria-hidden />
-              <h2 className="mt-5 text-2xl font-bold text-primary">
-                「よかれと思って」が不安な方に
-              </h2>
-              <p className="mt-4 leading-8 text-muted-foreground">
-                MGAは禁忌、姿勢、力加減、声かけまで扱います。相手の体を守りながら、
-                ケアする自分も疲れにくい方法を身につけます。
-              </p>
-            </CardContent>
-          </Card>
+          <div className="relative min-h-[420px] overflow-hidden rounded-3xl bg-white shadow-sm">
+            <Image
+              src={marketingImages.familyCare}
+              alt="家族のためにストレッチケアを学ぶ温かな様子"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 520px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <Card className="absolute inset-x-4 bottom-4 border-0 bg-white/95 shadow-sm backdrop-blur">
+              <CardContent className="p-6">
+                <HeartHandshake className="size-10 text-accent" aria-hidden />
+                <h2 className="mt-5 text-2xl font-bold text-primary">
+                  「よかれと思って」が不安な方に
+                </h2>
+                <p className="mt-4 leading-8 text-muted-foreground">
+                  MGAは禁忌、姿勢、力加減、声かけまで扱います。相手の体を守りながら、
+                  ケアする自分も疲れにくい方法を身につけます。
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 

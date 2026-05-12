@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, TrendingUp } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -9,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { courses, formatPrice } from "@/data/courses";
 import { testimonialsByPersona } from "@/data/testimonials";
+import { marketingImages } from "@/lib/marketing-images";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
 
@@ -52,16 +54,25 @@ export default function BusinessPage() {
         items={[{ label: "独立開業したい方", href: "/for/business" }]}
       />
 
-      <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="relative isolate overflow-hidden bg-primary py-16 text-white md:py-24">
+        <Image
+          src={marketingImages.graduates}
+          alt="MGAで学び卒業後の成功に向かう受講生"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-primary/65 to-accent/30" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <Badge className="mb-5 bg-primary/10 text-primary">
+            <Badge className="mb-5 border-white/25 bg-white/15 text-white backdrop-blur">
               独立開業・事業導入
             </Badge>
-            <h1 className="text-4xl font-black tracking-tight text-primary md:text-6xl">
+            <h1 className="text-4xl font-black tracking-tight text-white md:text-6xl">
               ストレッチを、選ばれる事業の柱にする。
             </h1>
-            <p className="mt-6 text-lg leading-9 text-muted-foreground">
+            <p className="mt-6 text-lg leading-9 text-white/90">
               未経験からトレーナーを目指す方、整体院やジムに新メニューを入れたい方、
               将来の独立開業を見据える方へ。MGAは技術だけでなく、事業化まで見据えた学びを提供します。
             </p>
@@ -69,14 +80,14 @@ export default function BusinessPage() {
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "mt-8 h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                "mt-8 h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
               )}
             >
               開業相談を予約
             </Link>
           </div>
-          <Card className="border-0 bg-white shadow-sm">
-            <CardContent className="p-6">
+          <Card className="border-0 bg-white/95 shadow-xl backdrop-blur">
+            <CardContent className="p-6 md:p-8">
               <BriefcaseBusiness className="size-10 text-accent" aria-hidden />
               <h2 className="mt-5 text-2xl font-bold text-primary">
                 技術、採用、メニュー化を一つの導線で
@@ -139,7 +150,7 @@ export default function BusinessPage() {
                     href={`/courses/${drStretchCourse.slug}`}
                     className={cn(
                       buttonVariants({ variant: "default" }),
-                      "mt-6 h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                      "mt-6 h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
                     )}
                   >
                     コース詳細を見る

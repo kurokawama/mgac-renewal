@@ -139,7 +139,7 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90"
+                  className="h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90"
                 >
                   送信する
                 </Button>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Stethoscope } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -9,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { courses, formatPrice } from "@/data/courses";
 import { testimonialsByPersona } from "@/data/testimonials";
+import { marketingImages } from "@/lib/marketing-images";
 import { cn } from "@/lib/utils";
 import { pageMetadata } from "@/lib/seo";
 
@@ -36,16 +38,25 @@ export default function MedicalPage() {
         items={[{ label: "医療専門職の方", href: "/for/medical" }]}
       />
 
-      <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="relative isolate overflow-hidden bg-primary py-16 text-white md:py-24">
+        <Image
+          src={marketingImages.hero}
+          alt="医療専門職がプロフェッショナルなストレッチ技術を学ぶ様子"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-primary/70 to-primary/30" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <Badge className="mb-5 bg-primary/10 text-primary">
+            <Badge className="mb-5 border-white/25 bg-white/15 text-white backdrop-blur">
               医療専門職のスキルアップ
             </Badge>
-            <h1 className="text-4xl font-black tracking-tight text-primary md:text-6xl">
+            <h1 className="text-4xl font-black tracking-tight text-white md:text-6xl">
               評価から介入まで、根拠を持ってストレッチを使いこなす。
             </h1>
-            <p className="mt-6 text-lg leading-9 text-muted-foreground">
+            <p className="mt-6 text-lg leading-9 text-white/90">
               MGAは、感覚だけに頼らないストレッチ技術を学ぶスクールです。
               解剖学、運動学、評価、実技をつなげ、患者さんや利用者さんに説明できる技術へ高めます。
             </p>
@@ -54,7 +65,7 @@ export default function MedicalPage() {
                 href="/contact"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                  "h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
                 )}
               >
                 臨床活用を相談する
@@ -63,7 +74,7 @@ export default function MedicalPage() {
                 href="/license"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "h-12 rounded-full bg-white px-8 text-base text-primary",
+                  "h-12 rounded-full border-white/60 bg-white px-8 text-base text-primary hover:bg-white/90",
                 )}
               >
                 ライセンスを見る
@@ -71,8 +82,8 @@ export default function MedicalPage() {
               </Link>
             </div>
           </div>
-          <Card className="border-0 bg-white shadow-sm">
-            <CardContent className="p-6">
+          <Card className="border-0 bg-white/95 shadow-xl backdrop-blur">
+            <CardContent className="p-6 md:p-8">
               <Stethoscope className="size-10 text-accent" aria-hidden />
               <h2 className="mt-5 text-2xl font-bold text-primary">
                 現場の限られた時間で、結果につながる選択肢を増やす
@@ -168,7 +179,7 @@ export default function MedicalPage() {
                 href="/license"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                  "h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
                 )}
               >
                 ライセンス案内へ

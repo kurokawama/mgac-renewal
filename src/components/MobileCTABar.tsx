@@ -15,7 +15,7 @@ export function MobileCTABar() {
       </a>
       <Link
         href="/contact"
-        className="flex h-12 items-center justify-center rounded-full bg-accent text-sm font-bold text-white"
+        className="flex h-12 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground"
       >
         <CalendarCheck className="mr-2 size-4" aria-hidden />
         無料体験
