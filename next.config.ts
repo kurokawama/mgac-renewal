@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "v3b.fal.media" },
+      { protocol: "https", hostname: "*.fal.media" },
+    ],
+  },
   async redirects() {
     return [
       { source: "/stretch", destination: "/courses", permanent: true },

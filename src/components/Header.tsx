@@ -58,7 +58,7 @@ export function Header() {
             href="/contact"
             className={cn(
               buttonVariants({ variant: "default" }),
-              "h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+              "h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
             )}
           >
             無料体験
@@ -95,7 +95,7 @@ export function Header() {
                 href="/contact"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "mt-4 h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                  "mt-4 h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
                 )}
               >
                 無料体験を予約

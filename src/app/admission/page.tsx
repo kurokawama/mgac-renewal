@@ -63,7 +63,7 @@ export default function AdmissionPage() {
       <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="max-w-3xl">
-            <Badge className="mb-5 h-auto rounded-full bg-accent px-5 py-2 text-base text-white">
+            <Badge className="mb-5 h-auto rounded-full bg-accent px-5 py-2 text-base text-accent-foreground">
               入会金・教材費なし
             </Badge>
             <h1 className="text-4xl font-black tracking-tight text-primary md:text-6xl">
@@ -186,7 +186,7 @@ export default function AdmissionPage() {
             href="/contact"
             className={cn(
               buttonVariants({ variant: "default" }),
-              "h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+              "h-12 rounded-full bg-accent px-8 text-base text-accent-foreground hover:bg-accent/90",
             )}
           >
             入学相談を予約する

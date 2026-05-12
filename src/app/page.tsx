@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -23,6 +24,7 @@ import { faqItems } from "@/data/faq";
 import { personas } from "@/data/site";
 import { testimonialsByPersona } from "@/data/testimonials";
 import { trainers } from "@/data/trainers";
+import { marketingImages } from "@/lib/marketing-images";
 import { cn } from "@/lib/utils";
 import { organizationJsonLd } from "@/lib/seo";
 
@@ -33,33 +35,43 @@ export default function Home() {
     <>
       <Breadcrumbs items={[]} />
       <JsonLd data={organizationJsonLd()} />
-      <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 lg:grid-cols-[1.1fr_0.9fr]">
+      <section className="relative isolate overflow-hidden bg-primary text-white">
+        <Image
+          src={marketingImages.hero}
+          alt="MGAのストレッチ技術を学ぶ受講生と講師"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-primary/65 to-black/35" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background/95 to-transparent" />
+        <div className="relative mx-auto grid min-h-[620px] max-w-6xl items-center gap-10 px-4 py-20 md:py-28 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <Badge className="mb-5 bg-primary/10 text-primary">
+            <Badge className="mb-5 border-white/25 bg-white/15 text-white backdrop-blur">
               医学的根拠で学ぶストレッチスクール
             </Badge>
-            <h1 className="text-4xl font-black tracking-tight text-primary md:text-6xl">
-              家族のケアから独立開業まで、体に触れる力を確かな技術へ。
+            <h1 className="max-w-4xl text-4xl font-black tracking-tight text-white md:text-6xl">
+              世界で認められた技術を、あなたの手に。
             </h1>
-            <p className="mt-6 text-lg leading-9 text-muted-foreground">
-              MGAは、解剖学、評価、実技を少人数で学ぶストレッチスクールです。未経験の方、医療専門職、事業化を目指す方まで目的別に学べます。
+            <p className="mt-6 max-w-2xl text-lg leading-9 text-white/90 md:text-xl">
+              年間500人以上が卒業。プロアスリートも認めるストレッチ技術を学べる唯一のスクール
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "h-12 rounded-full bg-accent px-8 text-base text-white hover:bg-accent/90",
+                  "h-12 rounded-full bg-accent px-8 text-base text-accent-foreground shadow-lg shadow-black/20 hover:bg-accent/90",
                 )}
               >
-                無料体験を予約
+                無料体験セミナーに申し込む
               </Link>
               <Link
                 href="/courses"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "h-12 rounded-full bg-white px-8 text-base text-primary",
+                  "h-12 rounded-full border-white/60 bg-white px-8 text-base text-primary hover:bg-white/90",
                 )}
               >
                 講座を見る
@@ -67,8 +79,8 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <Card className="border-0 bg-white shadow-sm">
-            <CardContent className="p-6">
+          <Card className="border-0 bg-white/95 shadow-xl backdrop-blur">
+            <CardContent className="p-6 md:p-8">
               <h2 className="text-2xl font-bold text-primary">
                 MGAで身につくこと
               </h2>
@@ -81,7 +93,7 @@ export default function Home() {
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
                     <CheckCircle2 className="mt-1 size-5 shrink-0 text-accent" />
-                    <span className="leading-7">{item}</span>
+                    <span className="leading-7 text-foreground">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -109,6 +121,16 @@ export default function Home() {
 
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4">
+          <div className="relative mb-10 h-32 overflow-hidden rounded-3xl shadow-sm md:h-44">
+            <Image
+              src={marketingImages.classroom}
+              alt="MGAの教室でストレッチ技術を実技指導する様子"
+              fill
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-primary/35" />
+          </div>
           <SectionHeader
             label="講座"
             title="8つの専門コース"
@@ -156,6 +178,26 @@ export default function Home() {
             title="目的別の成果"
             description="家族ケア、医療現場、事業化で学びがどう活きたかをご紹介します。"
           />
+          <div className="mb-10 grid gap-6 rounded-3xl bg-muted p-3 shadow-sm md:grid-cols-[0.9fr_1.1fr] md:items-center md:p-4">
+            <div className="relative min-h-[240px] overflow-hidden rounded-2xl">
+              <Image
+                src={marketingImages.graduates}
+                alt="MGAを卒業して達成感を分かち合う受講生"
+                fill
+                sizes="(max-width: 768px) 100vw, 480px"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-4 md:p-6">
+              <p className="text-sm font-bold text-accent">GRADUATES</p>
+              <h3 className="mt-3 text-2xl font-bold text-primary md:text-3xl">
+                学んだ技術が、家族・現場・事業の次の一歩になる
+              </h3>
+              <p className="mt-4 leading-8 text-muted-foreground">
+                少人数で実技を確認しながら、目的に合わせた使い方まで落とし込むから、修了後の行動につながります。
+              </p>
+            </div>
+          </div>
           <Tabs defaultValue="family">
             <TabsList className="mb-8 h-auto flex-wrap">
               {personas.map((persona) => (

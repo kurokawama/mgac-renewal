@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -6,6 +7,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { trainers } from "@/data/trainers";
+import { marketingImages } from "@/lib/marketing-images";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -41,6 +43,23 @@ export default function TrainersPage() {
       <JsonLd data={trainerJsonLd} />
       <section className="bg-gradient-to-b from-white to-muted py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4">
+          <div className="relative mb-12 min-h-[260px] overflow-hidden rounded-3xl shadow-sm md:min-h-[360px]">
+            <Image
+              src={marketingImages.classroom}
+              alt="MGAの教室で講師が受講生にストレッチ実技を指導する様子"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" />
+            <div className="absolute bottom-6 left-6 max-w-xl text-white md:bottom-8 md:left-8">
+              <p className="text-sm font-bold text-white/75">TRAINERS</p>
+              <h1 className="mt-3 text-3xl font-black tracking-tight text-white md:text-5xl">
+                現場の熱量を、そのまま教室へ。
+              </h1>
+            </div>
+          </div>
           <SectionHeader
             label="TRAINERS"
             title="現場経験のある9名の講師陣"
