@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { campuses, campusSlugs, getCampusBySlug, type Campus } from "@/data/campuses";
+import { campusSlugs, getCampusBySlug, type Campus } from "@/data/campuses";
 import { courses } from "@/data/courses";
 import { site } from "@/data/site";
 import { pageMetadata } from "@/lib/seo";
