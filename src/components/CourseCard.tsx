@@ -35,12 +35,12 @@ export function CourseCard({ course }: { course: Course }) {
           <div>
             <dt className="text-muted-foreground">受講料</dt>
             <dd className="font-bold text-foreground">
-              {formatPrice(course.price)}
+              {formatPrice(course.price)}円
             </dd>
           </div>
           <div>
             <dt className="text-muted-foreground">時間</dt>
-            <dd className="font-bold text-foreground">{course.hours}</dd>
+            <dd className="font-bold text-foreground">{course.hoursLabel}</dd>
           </div>
           <div className="col-span-2">
             <dt className="text-muted-foreground">習得内容</dt>
